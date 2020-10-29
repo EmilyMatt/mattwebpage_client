@@ -1,0 +1,160 @@
+{
+    "markers": [
+        {
+            "id": "105",
+            "lat": "31.42",
+            "lng": "35.35",
+            "position": {
+                "top": "",
+                "left": "-10px"
+            }
+        },
+        {
+            "id": "106",
+            "lat": "30.61",
+            "lng": "34.8",
+            "position": {
+                "top": "",
+                "left": "-10px"
+            }
+        },
+        {
+            "id": "114",
+            "lat": "31.83",
+            "lng": "34.64",
+            "position": {
+                "top": "20px",
+                "left": "-50px"
+            }
+        },
+        {
+            "id": "115",
+            "lat": "32.82",
+            "lng": "35",
+            "position": {
+                "top": "",
+                "left": "-10px"
+            }
+        },
+        {
+            "id": "201",
+            "lat": "32.98",
+            "lng": "35.7",
+            "position": {
+                "top": "20px",
+                "left": "30px"
+            }
+        },
+        {
+            "id": "202",
+            "lat": "32.8",
+            "lng": "35.53",
+            "position": {
+                "top": "25px",
+                "left": "30px"
+            }
+        },
+        {
+            "id": "203",
+            "lat": "32.45",
+            "lng": "35.5",
+            "position": {
+                "top": "50px",
+                "left": "-10px"
+            }
+        },
+        {
+            "id": "204",
+            "lat": "31.85",
+            "lng": "34.9",
+            "position": {
+                "top": "",
+                "left": "-10px"
+            }
+        },
+        {
+            "id": "207",
+            "lat": "32.75",
+            "lng": "35.3",
+            "position": {
+                "top": "50px",
+                "left": "-10px"
+            }
+        },
+        {
+            "id": "209",
+            "lat": "32.4",
+            "lng": "35.15",
+            "position": {
+                "top": "",
+                "left": "-10px"
+            }
+        },
+        {
+            "id": "402",
+            "lat": "32.1",
+            "lng": "34.76",
+            "position": {
+                "top": "10px",
+                "left": "-60px"
+            }
+        },
+        {
+            "id": "507",
+            "lat": "33.05",
+            "lng": "35.44",
+            "position": {
+                "top": "-5px",
+                "left": "-10px"
+            }
+        },
+        {
+            "id": "510",
+            "lat": "31.78",
+            "lng": "35.22",
+            "position": {
+                "top": "25px",
+                "left": "25px"
+            }
+        },
+        {
+            "id": "513",
+            "lat": "31.25",
+            "lng": "34.8"
+        },
+        {
+            "id": "520",
+            "lat": "29.55",
+            "lng": "34.9",
+            "position": {
+                "top": "-5px",
+                "left": "-10px"
+            }
+        }
+    ],
+    "wCodes": {
+        "1010": "Sandstorms",
+        "1020": "Thunderstorm",
+        "1060": "Snow",
+        "1070": "Light Snow",
+        "1080": "Sleet",
+        "1140": "Rainy",
+        "1160": "Fog",
+        "1220": "Partly Cloudy",
+        "1230": "Cloudy",
+        "1250": "Clear",
+        "1260": "Windy",
+        "1270": "Muggy",
+        "1300": "Frost",
+        "1310": "Hot",
+        "1320": "Cold",
+        "1510": "Stormy",
+        "1520": "Heavy Snow",
+        "1530": "Partly Cloudy, Possibly Rain",
+        "1540": "Cloudy, Possibly Rain",
+        "1560": "Cloudy, Light Rain",
+        "1570": "Dust",
+        "1580": "Extremely Hot",
+        "1590": "Extremely Cold"
+    }
+}

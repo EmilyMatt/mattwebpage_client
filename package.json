@@ -1,0 +1,34 @@
+{
+  "name": "mattwebpage_app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@vue/cli": "^4.5.7",
+    "axios": "^0.20.0",
+    "chart.js": "^2.9.4",
+    "core-js": "^3.6.5",
+    "mapbox-gl": "^1.12.0",
+    "md5": "^2.3.0",
+    "request": "^2.88.2",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.1",
+    "vue": "^2.6.11",
+    "vue-chartjs": "^3.5.1",
+    "vue-mapbox": "^0.4.1",
+    "vue-router": "^3.4.7",
+    "vue-socket.io-extended": "^4.0.5",
+    "vuex": "^3.4.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.5.7",
+    "@vue/cli-plugin-router": "^4.5.7",
+    "@vue/cli-plugin-vuex": "^4.5.7",
+    "@vue/cli-service": "^4.5.7",
+    "vue-template-compiler": "^2.6.11"
+  }
+}

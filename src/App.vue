@@ -102,6 +102,7 @@ import Sidebar from './components/SideBar'
   min-width: 85vw;
   display: flex;
   justify-content: center;
+  overflow-y: auto;
 }
 
 .wrapper.collapsed {

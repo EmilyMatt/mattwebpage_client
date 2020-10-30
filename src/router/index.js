@@ -35,9 +35,17 @@ const routes = [
     }
   },
   {
-    path: '/download',
-    name: 'download',
-    component: () => import('../views/Download.vue'),
+    path: '/mewpew',
+    name: 'mewpew',
+    component: () => import('../views/MewPew.vue'),
+    props: {
+      pagesList
+    }
+  },
+  {
+    path: '/submarines',
+    name: 'submarines',
+    component: () => import('../views/Submarines.vue'),
     props: {
       pagesList
     }

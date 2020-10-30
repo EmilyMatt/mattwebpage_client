@@ -114,6 +114,10 @@ who are completely dependant on 10bis and are helpless around the kitchen</pre>
 </style>
 
 <style scoped>
+	.recipes {
+				overflow: auto;
+	}
+
   .container {
     box-shadow: 0 0 5px 5px black;
     max-height: 65vh;

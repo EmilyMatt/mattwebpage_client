@@ -1,5 +1,5 @@
 <template>
-  <div class="download">
+  <div class="mewpew">
     <h1>Mew Pew</h1>
     <h3 class="subheader">The space simulator</h3>
 
@@ -32,7 +32,7 @@
   import viewsFuctions from '../controllers/views'
   export default {
   
-    name: 'download',
+    name: 'mewpew',
     data() {
       return {
         os: ""

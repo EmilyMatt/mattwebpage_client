@@ -39,10 +39,19 @@
           </li>
 
           <li class="nav-item">
-            <router-link id="downloadButton" to="/download" class="nav-link">
+            <router-link id="mewpewButton" to="/mewpew" class="nav-link">
               <i class="nav-icon fas fa-rocket" />
               <p>
                 Mew Pew
+              </p>
+            </router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link id="submarinesButton" to="/submarines" class="nav-link">
+              <i class="nav-icon fas fa-compass" />
+              <p>
+                Submarines
               </p>
             </router-link>
           </li>

@@ -7,7 +7,7 @@
     <br />
 
     <div class="banner">
-      <img src="img/banner.png" />
+      <img src="img/MewPew.png" />
     </div>
     
     <select id="selectOS" v-model="os">

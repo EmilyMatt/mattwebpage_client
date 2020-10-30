@@ -103,20 +103,7 @@ who are completely dependant on 10bis and are helpless around the kitchen</pre>
 		}
 </script>
 
-<style>
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
-  }
-
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    opacity: 0;
-  }
-</style>
-
 <style scoped>
-	.recipes {
-				overflow: auto;
-	}
 
   .container {
     box-shadow: 0 0 5px 5px black;

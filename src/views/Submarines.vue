@@ -1,13 +1,13 @@
 <template>
   <div class="submarines">
-    <h1>Submarines</h1>
+    <h1>Submarines [WIP]</h1>
     <h3 class="subheader">Battle in the deep</h3>
 
     <br />
     <br />
 
     <div class="banner">
-      <img src="img/banner.png" />
+      <img src="img/Submarines.png" />
     </div>
     
     <select id="selectOS" v-model="os">
@@ -18,10 +18,10 @@
     <br /><br />
 
     <div v-show="os == 'Windows(x86x64)'">
-      <button type="button" class="btn site-btn noanimation" @click="downloadMewPew('win')">Click Here <i class="fab fa-windows" /></button>
+      <button type="button" class="btn site-btn noanimation" @click="downloadSubmarines('win')">Click Here <i class="fab fa-windows" /></button>
     </div>
     <div v-show="os == 'Linux'">
-      <button type="button" class="btn site-btn noanimation" @click="downloadMewPew('linux')">Click Here <i class="fab fa-linux" /></button>
+      <button type="button" class="btn site-btn noanimation" @click="downloadSubmarines('linux')">Click Here <i class="fab fa-linux" /></button>
     </div>
 
   </div>
@@ -49,8 +49,7 @@
         this.os = "none"
     },
     methods: {
-      downloadMewPew(os) {
-        console.log(os)
+      downloadSubmarines(os) {
         let link = this.$route.params.proxy + "/downloadsubmarines"
         if (os == "Linux")
           link += "_linux"
@@ -72,14 +71,14 @@
 
   .site-btn {
       position: relative;
-      left: 31.5vw;
+      left: 6.5vw;
       bottom: 15vh;
       box-shadow: 0 0 2px 2px black
   }
 
   select {
       position: relative;
-      left: 30vw;
+      left: 5vw;
       bottom: 10vw;
       box-shadow: 0 0 2px 2px black;
   }

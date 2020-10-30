@@ -185,9 +185,6 @@ export default {
 
 <style>
 
-    .weather {
-        overflow: auto;
-    }
     #map {
         border-radius: 10%;
         box-shadow: 0 0 5px 5px black;

@@ -4,8 +4,12 @@
     <side-bar/>
     <nav-bar/>
     <div class="wrapper">
-      <transition>
-        <router-view/>
+      <transition name="fade"
+                  mode="out-in"
+                  + @beforeLeave="beforeLeave"
+                  + @enter="enter"
+                  + @afterEnter="afterEnter">
+        <router-view />
       </transition>
     </div>
   </div>
@@ -17,6 +21,28 @@ import Sidebar from './components/SideBar'
 
   export default {
     name: "app",
+    data() {
+      return {
+        prevHeight: 0,
+      };
+    },
+    methods: {
+      beforeLeave(element) {
+        this.prevHeight = getComputedStyle(element).height;
+      },
+      enter(element) {
+        const { height } = getComputedStyle(element);
+
+        element.style.height = this.prevHeight;
+
+        setTimeout(() => {
+          element.style.height = height;
+        });
+      },
+      afterEnter(element) {
+        element.style.height = 'auto';
+      },
+    },
   components: {
     'nav-bar': Navbar,
     'side-bar': Sidebar
@@ -151,5 +177,13 @@ import Sidebar from './components/SideBar'
       font-family: OpenSans;
       src: url(../public/fonts/opensans.ttf);
     }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
 
 </style>

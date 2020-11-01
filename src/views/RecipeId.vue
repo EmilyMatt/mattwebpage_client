@@ -3,8 +3,10 @@
     <div class="row" style="align-self: center;">
       <h1>{{recipeInfo.name}}</h1>
     </div>
+    <div class="row">
+      <img id="img" v-if="recipeInfo.path" :src="this.$route.params.proxy+recipeInfo.path" @error="imgErr()" />
+    </div>
     <br /><br />
-    <img v-if="recipeInfo.path" :src="this.$route.params.proxy+recipeInfo.path" />
     <div class="row">
       <p><b style="color: var(--pallete3)">Ingredients:</b></p>
     </div>
@@ -40,6 +42,13 @@
         .then(res => {
           this.recipeInfo = res.data
         })
+    },
+    methods: {
+      imgErr() {
+        const img = document.getElementById("img")
+        img.setAttribute("width", "0")
+        img.setAttribute("height", "0")
+      }
     }
   }
 </script>
@@ -57,9 +66,6 @@
   }
 
   img {
-    position:absolute;
-    left: 40vw;
-    top: 15vh;
     box-shadow: 0 0 5px 5px #000000;
     border-radius: 10%;
     height: 500px;

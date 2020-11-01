@@ -79,7 +79,7 @@
   select {
       position: relative;
       left: 5vw;
-      bottom: 10vw;
+      bottom: 15vh;
       box-shadow: 0 0 2px 2px black;
   }
 

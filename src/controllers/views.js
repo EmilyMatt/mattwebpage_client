@@ -18,5 +18,5 @@ const reformX  = (screen) => {
 
 module.exports = {
     updateButtons,
-    reformX
+  reformX,
 }

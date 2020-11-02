@@ -21,6 +21,11 @@
 												</tr>
 										</thead>
 										<tbody>
+											<tr v-show="!axios_done">
+												<td></td>
+												<td><img id="load-img" src="/img/Loading.png" /></td>
+												<td></td>
+											</tr>
 														<table-row v-for="recipe in recipes" 
 																:prop_index="recipe.number" 
 																:prop_recipeName="recipe.name" 
@@ -56,7 +61,8 @@ who are completely dependant on 10bis and are helpless around the kitchen</pre>
 				props: ["pagesList"],
 				//"global" variables for component
 				data() {
-						return {
+					return {
+							axios_done: false,
 								recipes: [],
 								modalShow: false,
 								addDisabled: false,
@@ -79,14 +85,29 @@ who are completely dependant on 10bis and are helpless around the kitchen</pre>
           method: "GET",
           url: this.$route.params.proxy+"/server/recipes/getRecipes"
         })
-          .then(response => {
+					.then(response => {
+						this.axios_done = true
             this.err_axios = false
             this.recipes = response.data.data
           })
-          .catch(() => {
+					.catch(() => {
+						this.axios_done = true
             //handle error if no data exists
             this.err_axios = true
-          })
+					})
+				this.loadingImg()
+			},
+      async loadingImg() {
+        let angle = 0
+        const img = document.getElementById("load-img")
+				while (true) {
+					if (this.axios_done)
+						break;
+
+          img.style.transform = `rotate(${angle}deg)`
+          await new Promise(res => setTimeout(() => res(), 1))
+          angle++
+        }
       },
 						modalAnimation()
 						{

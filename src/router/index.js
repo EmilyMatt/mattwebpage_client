@@ -85,8 +85,16 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    to.params.proxy = "http://localhost:5000"
+  to.params.proxy = ""
   next()
+})
+
+router.afterEach((to, from) => {
+  if (document.documentElement.clientWidth < 1100) {
+    document.querySelector(".sidebar-wrapper").classList.remove("collapsed")
+    document.querySelector(".navbar").classList.remove("collapsed")
+    document.querySelector(".wrapper").classList.remove("collapsed")
+  }
 })
 
 export default router;

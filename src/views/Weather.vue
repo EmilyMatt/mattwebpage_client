@@ -4,9 +4,14 @@
         <h1 class="header">Weather</h1>
         <h3 class="subheader">Click on any city to view current temperatures</h3>
         <p id="weatherError" class="site-error" v-show="err_axios"><b>Unable to retrieve data</b></p>
-        <br>
+        <div v-show="!axios_done">
+          <img id="load-img" v-show="!axios_done" src="/img/Loading.png" />
+          <br />
+          <br />
+        </div>
+        
         <div id="map"/>
-        <div class="modal" :class="modal.class" :style="modal.style">
+        <div id="modal" :class="modal.class" :style="modal.style">
             <span class="close" @click="modal.class=''">&times;</span>
             <div id="cityName"><b style="color: darkgreen; left: -10px; position: relative;">{{modal.city_name}}</b></div>
             <div>Temperature:</div>
@@ -28,7 +33,8 @@ export default {
     props: ["pagesList"],
     //"global" variables for component
     data() {
-        return {
+      return {
+        axios_done: false,
             err_axios: false,
             map: null,
             map_key: "",
@@ -60,6 +66,7 @@ export default {
         })
             .then( response => {
 
+              this.axios_done = true;
                 //if request failed show error
                 if (!response.data.success)
                     return this.err_axios = true
@@ -70,12 +77,27 @@ export default {
                 this.map_key = response.data.key
                 this.initMap()    
             })
-            .catch ( () => {
+          .catch(() => {
+
+            this.axios_done = true;
                 //handle error if no data exists
                 this.err_axios = true
             })
+
+      this.loadingImg()
     },
     methods: {
+      async loadingImg() {
+        let angle = 0
+        const img = document.getElementById("load-img")
+        while (true) {
+          if (this.axios_done)
+            break;
+          img.style.transform = `rotate(${angle}deg)`
+          await new Promise(res => setTimeout(() => res(), 1))
+          angle ++
+        }
+      },
         initMap() {
 
             const data = this.weatherData
@@ -102,8 +124,8 @@ export default {
                 const div = document.createElement('div')
                 div.setAttribute('id', element.id)
                 
-                //add click listener to open info modal
-                div.addEventListener("click", (event) => this.modalInfo(event.pageX, event.pageY, idxData))
+              //add click listener to open info modal
+              div.addEventListener("click", (event) => this.modalInfo(event.pageX, event.pageY, idxData))
                 
                 //set style and specific image
                 div.classList.add('marker')
@@ -161,7 +183,7 @@ export default {
             //after 0.5s, to allow for animation, make the modal visible at the new location
             setTimeout( () => {
                 this.modal.class = "shown"
-                this.modal.style = `left: calc(${pageX}px ${this.modal.reformX}); top: calc(${pageY}px - 8vh)`
+                this.modal.style = `left: ${pageX}px; top: ${pageY}px;`
                 }, 500)
         },
         screenResize() {
@@ -185,6 +207,10 @@ export default {
 
 <style>
 
+  .weather {
+      max-height: 90vh;
+      overflow-y: auto;
+  }
     #map {
         border-radius: 10%;
         box-shadow: 0 0 5px 5px black;
@@ -198,6 +224,11 @@ export default {
         cursor: pointer;
     }
 
+    #load-img {
+        width: 5vw;
+        margin-left: 15vw;
+    }
+
     .marker-label {
         position: relative;
         top: 50px;
@@ -207,14 +238,12 @@ export default {
         text-align: center;
     }
 
-    .modal {
+    #modal {
         display: block;
         opacity: 0;
         width: 0;
         height: 0;
-        position: absolute;
-        left: 25vw;
-        top: 15vh;
+        position: fixed;
         background-color: gray;
         box-shadow: 0 0 10px 5px black;
         border-radius: 10%;
@@ -222,18 +251,19 @@ export default {
         overflow: hidden;
         text-align: center;
         transition: 0.25s ease;
+        margin: 0;
     }
 
-    .modal.shown {
+    #modal.shown {
         opacity: 1; 
         width: 160px; 
         height:140px;
     }
 
-    .modal div, .modal span {
+    #modal div, #modal span {
         color: black;
     }
-    .modal .close {
+    #modal .close {
         float: left;
     }
 

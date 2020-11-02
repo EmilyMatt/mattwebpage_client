@@ -126,11 +126,11 @@ import Sidebar from './components/SideBar'
   padding-top: 2vh;
   transition: 1s;
   min-width: 85vw;
+  height: 94vh;
   display: flex;
   justify-content: center;
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: 94vh;
 }
 
 .wrapper.collapsed {

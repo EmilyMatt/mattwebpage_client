@@ -24,7 +24,7 @@
 
       <div class="col">
         <div class="row">
-          <img id="img" v-if="recipeInfo.path" :src="this.$route.params.proxy+recipeInfo.path" @error="imgErr()" />
+          <img id="img" v-if="recipeInfo.path" :src="this.$route.params.proxy+recipeInfo.path" :onerror="recipeInfo.path = ''" />
         </div>
       </div>
 
@@ -50,13 +50,6 @@
         .then(res => {
           this.recipeInfo = res.data
         })
-    },
-    methods: {
-      imgErr() {
-        const img = document.getElementById("img")
-        img.setAttribute("width", "0")
-        img.setAttribute("height", "0")
-      }
     }
   }
 </script>

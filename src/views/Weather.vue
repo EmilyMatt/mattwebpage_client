@@ -23,8 +23,6 @@
 </template>
 
 <script>
-    import axios from 'axios'
-    import mapboxgl from "mapbox-gl"
     import json from '../assets/json/markers.json'
     import viewsFunctions from '../controllers/views'
 
@@ -265,6 +263,7 @@ export default {
     }
     #modal .close {
         float: left;
+        cursor: pointer;
     }
 
     #temps {

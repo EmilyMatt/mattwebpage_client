@@ -9,11 +9,9 @@
 </template>
 
 <script>
-// @ is an alias to /src
-
-export default {
-  name: 'not-found'
-}
+  export default {
+    name: 'not-found'
+  }
 </script>
 
 <style scoped>

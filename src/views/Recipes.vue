@@ -30,7 +30,7 @@
 																:prop_index="recipe.number" 
 																:prop_recipeName="recipe.name" 
 																:prop_addedBy="recipe.addedBy" 
-																:prop_dateAdded="recipe.dateAdded" 
+																:prop_dateAdded="recipe.dateAdded"
 																:prop_thumb="recipe.thumb" 
 																:prop_views="recipe.views"
 																:prop_link="recipe.link"
@@ -54,7 +54,6 @@ who are completely dependant on 10bis and are helpless around the kitchen</pre>
 		import RecipesTableRow from '../components/Recipes/RecipesTableRow'
 		import RecipesFormModal from '../components/Recipes/RecipesFormModal'
 		import viewsFunctions from '../controllers/views'
-		import axios from 'axios'
 
 		export default {
 				name: 'recipes',

@@ -33,7 +33,6 @@
 
 <script>
   import md5 from 'md5'
-  import axios from 'axios'
   import viewsFunctions from '../controllers/views'
   import InputMailVue from '../components/Forms/InputMail.vue'
   import InputTextVue from '../components/Forms/InputText.vue'

@@ -37,6 +37,10 @@ export default {
     left: 15vw;
   }
 
+  i {
+      color: var(--pallete2)
+  }
+
     .navbar.collapsed {
         left: 0;
     }
@@ -47,10 +51,6 @@ export default {
 
     .nav-item {
         cursor: pointer;
-    }
-
-    .svg-inline--fa {
-        color: #fff!important;  
     }
 
   @media(max-width: 1550px) {

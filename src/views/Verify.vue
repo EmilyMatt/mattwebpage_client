@@ -8,7 +8,6 @@
 </template>
 
 <script>
-  import axios from 'axios'
   import viewsFunctions from '../controllers/views'
   export default {
     name: 'verify',

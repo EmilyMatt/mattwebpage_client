@@ -27,7 +27,7 @@
                 <i class="fas fa-square sqr" style="color: blue" /> Visits last week
               </span>
               <span class="mr-2">
-                <i class="fas fa-square sqr" style="color: grey" /> Uniques last week
+                <i class="fas fa-square sqr" style="color: rgba(0, 168, 0, 1)" /> Uniques last week
               </span>
             </div>
 
@@ -36,8 +36,7 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  import Chart from 'chart.js'
+
 export default {
     name: 'widget-1',
     data() {
@@ -94,10 +93,14 @@ export default {
         const thisWeekUnique = this.setByDays(data.thisWeekUnique, 0)
         const lastWeek = this.setByDays(data.lastWeek, 7)
         const lastWeekUnique = this.setByDays(data.lastWeekUnique, 7)
-        this.percentage = data.thisWeek.length / data.lastWeek.length * 100
+        this.percentage = Math.trunc(thisWeek[0] / lastWeek[0] * 100)
+
         if (this.percentage < 0) {
           this.arrowDir = "down"
           this.textColor = "warning"
+        } else if (isNaN(this.percentage)) {
+          this.percentage = "N/A"
+          this.arrowDir = ""
         }
         
         new Chart(document.getElementById("visitors-chart"), {
@@ -109,25 +112,29 @@ export default {
                 backgroundColor: 'rgba(255, 168, 0, 0.1)',
                 borderColor: 'rgba(255, 168, 0, 1)',
                 fill: false,
-                data: thisWeek
+                data: thisWeek,
+                lineTension: 0
               },
               {
                 backgroundColor: 'rgba(255, 0, 0, 0.1)',
                 borderColor: 'rgba(255, 0, 0, 1)',
                 fill: false,
-                data: thisWeekUnique
+                data: thisWeekUnique,
+                lineTension: 0
               },
               {
                 backgroundColor: 'rgba(0, 0, 255, 0.1)',
                 borderColor: 'rgba(0, 0, 255, 1)',
                 fill: false,
-                data: lastWeek
+                data: lastWeek,
+                lineTension: 0
               },
               {
                 backgroundColor: 'rgba(0, 168, 0, 0.1)',
                 borderColor: 'rgba(0, 168, 0, 1)',
                 fill: false,
-                data: lastWeekUnique
+                data: lastWeekUnique,
+                lineTension: 0
               },
             ]
           },

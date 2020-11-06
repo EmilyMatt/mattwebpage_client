@@ -21,9 +21,9 @@
 												</tr>
 										</thead>
 										<tbody>
-											<tr v-show="!axios_done">
+											<tr v-if="!axios_done">
 												<td></td>
-												<td><img id="load-img" src="/img/Loading.png" /></td>
+												<td><loading-img></loading-img></td>
 												<td></td>
 											</tr>
 														<table-row v-for="recipe in recipes" 
@@ -51,6 +51,8 @@ who are completely dependant on 10bis and are helpless around the kitchen</pre>
 </template>
 
 <script>
+
+		import Loading from '../components/Loading'
 		import RecipesTableRow from '../components/Recipes/RecipesTableRow'
 		import RecipesFormModal from '../components/Recipes/RecipesFormModal'
 		import viewsFunctions from '../controllers/views'
@@ -94,20 +96,7 @@ who are completely dependant on 10bis and are helpless around the kitchen</pre>
             //handle error if no data exists
             this.err_axios = true
 					})
-				this.loadingImg()
 			},
-      async loadingImg() {
-        let angle = 0
-        const img = document.getElementById("load-img")
-				while (true) {
-					if (this.axios_done)
-						break;
-
-          img.style.transform = `rotate(${angle}deg)`
-          await new Promise(res => setTimeout(() => res(), 1))
-          angle++
-        }
-      },
 						modalAnimation()
 						{
 						this.modalShow = !this.modalShow
@@ -118,7 +107,8 @@ who are completely dependant on 10bis and are helpless around the kitchen</pre>
 				},
 				components: {
 						'table-row': RecipesTableRow,
-						'form-modal': RecipesFormModal
+					'form-modal': RecipesFormModal,
+					'loading-img': Loading
 				}
 		}
 </script>

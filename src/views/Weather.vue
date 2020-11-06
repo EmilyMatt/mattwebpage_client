@@ -4,11 +4,7 @@
         <h1 class="header">Weather</h1>
         <h3 class="subheader">Click on any city to view current temperatures</h3>
         <p id="weatherError" class="site-error" v-show="err_axios"><b>Unable to retrieve data</b></p>
-        <div v-show="!axios_done">
-          <img id="load-img" v-show="!axios_done" src="/img/Loading.png" />
-          <br />
-          <br />
-        </div>
+        <loading-img v-if="!axios_done"></loading-img>
         
         <div id="map"/>
         <div id="modal" :class="modal.class" :style="modal.style">
@@ -24,7 +20,8 @@
 
 <script>
     import json from '../assets/json/markers.json'
-    import viewsFunctions from '../controllers/views'
+  import viewsFunctions from '../controllers/views'
+  import Loading from '../components/Loading'
 
 export default {
     name: 'weather',
@@ -77,25 +74,13 @@ export default {
             })
           .catch(() => {
 
-            this.axios_done = true;
+              this.axios_done = true;
                 //handle error if no data exists
                 this.err_axios = true
             })
 
-      this.loadingImg()
     },
     methods: {
-      async loadingImg() {
-        let angle = 0
-        const img = document.getElementById("load-img")
-        while (true) {
-          if (this.axios_done)
-            break;
-          img.style.transform = `rotate(${angle}deg)`
-          await new Promise(res => setTimeout(() => res(), 1))
-          angle ++
-        }
-      },
         initMap() {
 
             const data = this.weatherData
@@ -199,6 +184,9 @@ export default {
             document.getElementById("map").style.width = width
             this.map.resize()
         }
+    },
+    components: {
+      'loading-img': Loading
     }
 }
 </script>
@@ -220,11 +208,6 @@ export default {
         height: 50px;
         border-radius: 50%;
         cursor: pointer;
-    }
-
-    #load-img {
-        width: 5vw;
-        margin-left: 15vw;
     }
 
     .marker-label {

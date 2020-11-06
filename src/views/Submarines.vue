@@ -7,20 +7,21 @@
     <br />
 
     <div class="banner">
-      <img src="img/Submarines.png" />
+      <loading-img v-if="!imageReady"></loading-img>
+      <img src="img/Submarines.png" :onload="imageReady = true" />
     </div>
     
-    <select id="selectOS" v-model="os">
+    <select v-if="imageReady" id="selectOS" v-model="os">
       <option>Windows(x86x64)</option>
       <option>Linux</option>
     </select>
 
     <br /><br />
 
-    <div v-show="os == 'Windows(x86x64)'">
+    <div v-if="os == 'Windows(x86x64)' && imageReady">
       <button type="button" class="btn site-btn noanimation" @click="downloadSubmarines('win')">Click Here <i class="fab fa-windows" /></button>
     </div>
-    <div v-show="os == 'Linux'">
+    <div v-if="os == 'Linux' && imageReady">
       <button type="button" class="btn site-btn noanimation" @click="downloadSubmarines('linux')">Click Here <i class="fab fa-linux" /></button>
     </div>
 
@@ -30,12 +31,14 @@
 <script>
 
   import viewsFuctions from '../controllers/views'
+  import Loading from '../components/Loading'
   export default {
   
     name: 'submarines',
     data() {
       return {
-        os: ""
+        os: "",
+        imageReady: false
       }
     },
     mounted() {
@@ -56,7 +59,10 @@
         window.open(link)
       }
     },
-    props: ["pagesList"]
+    props: ["pagesList"],
+    components: {
+      'loading-img': Loading
+    }
 }
 </script>
 

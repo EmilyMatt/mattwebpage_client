@@ -17,7 +17,7 @@
 
 <script>
 import Navbar from './components/NavBar'
-import Sidebar from './components/SideBar'
+  import Sidebar from './components/SideBar'
 
   export default {
     name: "app",

@@ -85,7 +85,10 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  to.params.proxy = ""
+  if (process.env.NODE_ENV == "development")
+    to.params.proxy = "http://localhost:5000"
+  else
+    to.params.proxy = ""
   next()
 })
 

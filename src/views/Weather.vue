@@ -3,7 +3,9 @@
 
         <h1 class="header">Weather</h1>
         <h3 class="subheader">Click on any city to view current temperatures</h3>
-        <p id="weatherError" class="site-error" v-show="err_axios"><b>Unable to retrieve data</b></p>
+        <transition name="fadeDown">
+          <p id="weatherError" class="site-error" v-show="err_axios"><b>Unable to retrieve data</b></p>
+        </transition>
         <loading-img v-if="!axios_done"></loading-img>
         
         <div id="map"/>
@@ -197,12 +199,21 @@ export default {
       overflow-y: auto;
       padding: 5%;
       padding-bottom: 10vh;
+      width: 100%;
   }
-    #map {
-        border-radius: 10%;
-        box-shadow: 0 0 5px 5px black;
-        margin-left: 5vw;
-    }
+
+  #weatherError {
+      position: relative;
+      left: 35%;
+  }
+
+  #map {
+    border-radius: 10%;
+    box-shadow: 0 0 5px 5px black;
+    left: 35%;
+    position: relative;
+    transition: 0.5s;
+  }
 
     .marker {
         width: 50px;
@@ -254,11 +265,6 @@ export default {
         display: flex;
         flex-direction: row;
         justify-content: center;
-    }
-
-    #map {
-        position: relative;
-        transition: 0.5s;
     }
 
     @media(max-width: 800px) {

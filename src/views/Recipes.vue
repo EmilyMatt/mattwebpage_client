@@ -7,42 +7,40 @@
 					<form-modal v-if="modalShow" @closeModal="modalShow=false" @submitted="modalShow=false; getRecipes()" />
 				</transition>
 				<div class="container">
-						<div class="table-responsive">
-								<table class="table table-responsive recipes">
-										<thead>
-												<tr>
-														<th>#</th>
-														<th>Recipe Name</th>
-														<th>Added By</th>
-														<th>Date Added</th>
-														<th style="text-align: center;">Preview</th>
-														<th>Views</th>
-														<th>To Recipe</th>
-												</tr>
-										</thead>
-										<tbody>
-											<tr v-if="!axios_done">
-												<td></td>
-												<td></td>
-												<td></td>
-												<td><loading-img></loading-img></td>
-												<td></td>
-												<td></td>
-												<td></td>
+							<table class="table">
+									<thead>
+											<tr>
+													<th>#</th>
+													<th>Recipe Name</th>
+													<th>Added By</th>
+													<th>Date Added</th>
+													<th style="text-align: center;">Preview</th>
+													<th>Views</th>
+													<th>To Recipe</th>
 											</tr>
-														<table-row v-for="recipe in recipes" 
-																:prop_index="recipe.number" 
-																:prop_recipeName="recipe.name" 
-																:prop_addedBy="recipe.addedBy" 
-																:prop_dateAdded="recipe.dateAdded"
-																:prop_thumb="recipe.thumb" 
-																:prop_views="recipe.views"
-																:prop_link="recipe.link"
-																:key="recipe.index"
-														/>
-										</tbody>
-								</table>
-						</div>
+									</thead>
+									<tbody>
+										<tr v-if="!axios_done">
+											<td></td>
+											<td></td>
+											<td></td>
+											<td><loading-img></loading-img></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+													<table-row v-for="recipe in recipes" 
+															:prop_index="recipe.number" 
+															:prop_recipeName="recipe.name" 
+															:prop_addedBy="recipe.addedBy" 
+															:prop_dateAdded="recipe.dateAdded"
+															:prop_thumb="recipe.thumb" 
+															:prop_views="recipe.views"
+															:prop_link="recipe.link"
+															:key="recipe.index"
+													/>
+									</tbody>
+							</table>
 				</div>
 				<br>
 				<div><p class="site-error" v-show="err_max">Too many recipes!</p></div>
@@ -121,6 +119,10 @@ who are completely dependant on 10bis and are helpless around the kitchen</pre>
 
 	.recipes {
 				padding: 2%;
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
 	}
 
   .container {
@@ -129,6 +131,7 @@ who are completely dependant on 10bis and are helpless around the kitchen</pre>
     overflow-y: auto;
     background-color: darkgrey;
     border-radius: 0.5rem;
+		max-width: 800px;
   }
 
 		pre {

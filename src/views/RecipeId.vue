@@ -56,7 +56,6 @@
 
 <style scoped>
   .recipe {
-    
     width: 100%;
     padding-left: 3vw;
   }

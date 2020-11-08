@@ -10,19 +10,21 @@
       <loading-img v-if="!imageReady"></loading-img>
       <img src="img/MewPew.jpg" :onload="imageReady = true" alt="MewPew banner" />
     </div>
-    
-    <select v-if="imageReady" id="selectOS" v-model="os">
-      <option>Windows(x86x64)</option>
-      <option>Linux</option>
-    </select>
 
-    <br /><br />
+    <div class="buttons">
+      <select v-if="imageReady" id="selectOS" v-model="os">
+        <option>Windows(x86x64)</option>
+        <option>Linux</option>
+      </select>
 
-    <div v-if="os == 'Windows(x86x64)' && imageReady">
-      <button type="button" class="btn site-btn noanimation" @click="downloadMewPew('win')">Click Here <i class="fab fa-windows" /></button>
-    </div>
-    <div v-if="os == 'Linux' && imageReady">
-      <button type="button" class="btn site-btn noanimation" @click="downloadMewPew('linux')">Click Here <i class="fab fa-linux" /></button>
+      <br />
+
+      <div v-if="os == 'Windows(x86x64)' && imageReady">
+        <button type="button" class="btn site-btn noanimation" @click="downloadMewPew('win')">Click Here <i class="fab fa-windows" /></button>
+      </div>
+      <div v-if="os == 'Linux' && imageReady">
+        <button type="button" class="btn site-btn noanimation" @click="downloadMewPew('linux')">Click Here <i class="fab fa-linux" /></button>
+      </div>
     </div>
 
   </div>
@@ -68,17 +70,27 @@
 
 <style scoped>
 
-  .site-btn {
+  .mewpew {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       position: relative;
-      left: 31.5vw;
-      bottom: 15vh;
+      top: -20%;
+      left: 10%;
+  }
+
+  .site-btn {
       box-shadow: 0 0 2px 2px black
   }
 
   select {
-      position: relative;
-      left: 30vw;
-      bottom: 15vh;
       box-shadow: 0 0 2px 2px black;
   }
 
@@ -97,10 +109,6 @@
           width: 28vw;
           height: 3vh;
           padding: 0;
-          left: 50vw;
-      }
-      select {
-          left: 45vw;
       }
   }
 </style>

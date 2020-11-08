@@ -18,4 +18,8 @@
   p {
       color: white;
   }
+
+  .not-found {
+    width: 100%;
+  }
 </style>

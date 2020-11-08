@@ -176,13 +176,13 @@ import Navbar from './components/NavBar'
 
     @font-face {
       font-family: Wheaton;
-      src: url(../public/fonts/wheaton.ttf)
+      src: url(./../public/fonts/wheaton.ttf)
     }
 
-    @font-face {
-      font-family: OpenSans;
-      src: url(../public/fonts/opensans.ttf);
-    }
+  @font-face {
+    font-family: OpenSans;
+    src: url(./../public/fonts/opensans.ttf);
+  }
 
   .fade-enter-active, .fade-leave-active {
     transition: opacity .5s;

@@ -35,9 +35,6 @@ export default {
     transition: 1s all;
     width: 100%;
     left: 15vw;
-    padding-top: 0;
-    padding-bottom: 0;
-    top: -0.5vh;
   }
 
   i {
@@ -69,6 +66,9 @@ export default {
         left: 0;
         transition: 1s all ease-out;
         border-bottom-right-radius: 10px;
+        padding-top: 0;
+        padding-bottom: 0;
+        top: -0.5vh;
       }
 
         .navbar.collapsed {

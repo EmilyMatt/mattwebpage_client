@@ -96,7 +96,11 @@
       })
     },
     methods: {
-      hover: (e) => e.path[0].querySelector('i').classList.toggle("fa-spin")
+      hover: (e) => {
+        e.path[0].classList.contains("active")
+          ? e.path[0].querySelector('i').classList.remove("fa-spin")
+          : e.path[0].querySelector('i').classList.toggle("fa-spin")
+      }
     }
   }
 </script>

@@ -4,12 +4,11 @@
     "\\public",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\Forms",
     "\\src\\components\\Recipes",
     "\\src\\controllers",
     "\\src\\router",
     "\\src\\views"
   ],
-  "SelectedNode": "\\src\\components\\NavBar.vue",
+  "SelectedNode": "\\src\\views\\MewPew.vue",
   "PreviewInSolutionExplorer": false
 }

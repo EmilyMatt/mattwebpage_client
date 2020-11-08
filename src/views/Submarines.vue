@@ -10,19 +10,21 @@
       <loading-img v-if="!imageReady"></loading-img>
       <img src="img/Submarines.jpg" :onload="imageReady = true" alt="Submarines banner"/>
     </div>
-    
-    <select v-if="imageReady" id="selectOS" v-model="os">
-      <option>Windows(x86x64)</option>
-      <option>Linux</option>
-    </select>
 
-    <br /><br />
+    <div class="buttons">
+      <select v-if="imageReady" id="selectOS" v-model="os">
+        <option>Windows(x86x64)</option>
+        <option>Linux</option>
+      </select>
 
-    <div v-if="os == 'Windows(x86x64)' && imageReady">
-      <button type="button" class="btn site-btn noanimation" @click="downloadSubmarines('win')">Click Here <i class="fab fa-windows" /></button>
-    </div>
-    <div v-if="os == 'Linux' && imageReady">
-      <button type="button" class="btn site-btn noanimation" @click="downloadSubmarines('linux')">Click Here <i class="fab fa-linux" /></button>
+      <br />
+
+      <div v-if="os == 'Windows(x86x64)' && imageReady">
+        <button type="button" class="btn site-btn noanimation" @click="downloadSubmarines('win')">Click Here <i class="fab fa-windows" /></button>
+      </div>
+      <div v-if="os == 'Linux' && imageReady">
+        <button type="button" class="btn site-btn noanimation" @click="downloadSubmarines('linux')">Click Here <i class="fab fa-linux" /></button>
+      </div>
     </div>
 
   </div>
@@ -68,17 +70,27 @@
 
 <style scoped>
 
+  .submarines {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: -20%;
+    left: -15%;
+  }
+
   .site-btn {
-      position: relative;
-      left: 6.5vw;
-      bottom: 15vh;
       box-shadow: 0 0 2px 2px black
   }
 
   select {
-      position: relative;
-      left: 5vw;
-      bottom: 15vh;
       box-shadow: 0 0 2px 2px black;
   }
 
@@ -97,10 +109,6 @@
           width: 28vw;
           height: 3vh;
           padding: 0;
-          left: 50vw;
-      }
-      select {
-          left: 45vw;
       }
   }
 </style>

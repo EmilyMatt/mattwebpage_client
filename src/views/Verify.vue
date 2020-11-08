@@ -38,6 +38,12 @@
 
 <style scoped>
 
+  .verify {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .site-btn {
       position: relative;
       left: 31.5vw;

@@ -120,6 +120,13 @@
 
 <style scoped>
 
+  .register {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .register-header {
     width: 100%;
     text-align: center;
@@ -139,6 +146,7 @@
       align-items: center;
       background-color: darkgrey;
       border-radius: 20px;
+      max-width: 1200px;
   }
 
   label {

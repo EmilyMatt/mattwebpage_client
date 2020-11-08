@@ -132,7 +132,7 @@
     flex-direction: row;
     justify-content: center;
     padding: 5px;
-    height: 10%;
+    height: 20%;
     border-bottom: 1px solid black;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
@@ -143,11 +143,6 @@
   .close{
       font-size: 50px;
       margin-left: auto;
-  }
-
-  h1 {
-      margin: auto;
-      margin-left: 23vw;
   }
 
   #modal-body {

@@ -2,14 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\public",
-    "\\public\\img",
     "\\src",
     "\\src\\components",
+    "\\src\\components\\Forms",
     "\\src\\components\\Recipes",
     "\\src\\controllers",
     "\\src\\router",
     "\\src\\views"
   ],
-  "SelectedNode": "\\src\\views\\Recipes.vue",
+  "SelectedNode": "\\src\\components\\NavBar.vue",
   "PreviewInSolutionExplorer": false
 }

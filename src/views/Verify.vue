@@ -37,13 +37,6 @@
 </script>
 
 <style scoped>
-  h1 {
-      text-align: center;
-  }
-
-  h3 {
-      text-align: center;
-  }
 
   .site-btn {
       position: relative;

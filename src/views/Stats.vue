@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="stats">
     <h1>Site Visitors</h1>
     <br />
     <br />
@@ -12,7 +12,7 @@
   import viewsFunctions from '../controllers/views'
 
 export default {
-  name: 'home',
+  name: 'stats',
     mounted() {
       viewsFunctions.updateButtons(this.pagesList, this.$options.name)
   },
@@ -22,9 +22,3 @@ export default {
   props:["pagesList"]
 }
 </script>
-
-<style scoped>
-  h1 {
-      text-align: center;
-  }
-</style>

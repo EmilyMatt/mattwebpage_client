@@ -23,7 +23,11 @@
 										<tbody>
 											<tr v-if="!axios_done">
 												<td></td>
+												<td></td>
+												<td></td>
 												<td><loading-img></loading-img></td>
+												<td></td>
+												<td></td>
 												<td></td>
 											</tr>
 														<table-row v-for="recipe in recipes" 
@@ -114,6 +118,10 @@ who are completely dependant on 10bis and are helpless around the kitchen</pre>
 </script>
 
 <style scoped>
+
+	.recipes {
+				padding: 2%;
+	}
 
   .container {
     box-shadow: 0 0 5px 5px black;

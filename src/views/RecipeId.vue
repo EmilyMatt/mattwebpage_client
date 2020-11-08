@@ -24,7 +24,7 @@
 
       <div class="col">
         <div class="row">
-          <img id="img" v-if="recipeInfo.path" :src="this.$route.params.proxy+recipeInfo.path" />
+          <img id="img" v-if="recipeInfo.path" :src="this.$route.params.proxy+recipeInfo.path" :alt="recipeInfo.name" />
         </div>
       </div>
 

@@ -4,7 +4,7 @@
 
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" @click="toggleMenu" data-widget="pushmenu" role="button" style="cursor: pointer;">
+                <a id="burger" class="nav-link" @click="toggleMenu" style="cursor: pointer;">
                     <i class="fas fa-bars"/>
                 </a>
             </li>
@@ -35,6 +35,9 @@ export default {
     transition: 1s all;
     width: 100%;
     left: 15vw;
+    padding-top: 0;
+    padding-bottom: 0;
+    top: -0.5vh;
   }
 
   i {

@@ -8,7 +8,7 @@
 
     <div class="banner">
       <loading-img v-if="!imageReady"></loading-img>
-      <img src="img/Submarines.png" :onload="imageReady = true" />
+      <img src="img/Submarines.jpg" :onload="imageReady = true" alt="Submarines banner"/>
     </div>
     
     <select v-if="imageReady" id="selectOS" v-model="os">
@@ -67,13 +67,6 @@
 </script>
 
 <style scoped>
-  h1 {
-      text-align: center;
-  }
-
-  h3 {
-      text-align: center;
-  }
 
   .site-btn {
       position: relative;

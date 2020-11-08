@@ -56,9 +56,11 @@ import Navbar from './components/NavBar'
     --pallete2: #c85417;
     --pallete3: #c87b17;
     --pallete4: #4a2b7a;
+    --pallete5: #9e9e9e;
   }
   html, body {
     background-color: var(--pallete1);
+    height: 0;
   }
 
   label {
@@ -71,7 +73,7 @@ import Navbar from './components/NavBar'
   }
 
   .subheader {
-      color: #9e9e9e;
+      color: var(--pallete5);
       font-family: OpenSans
   }
 
@@ -79,8 +81,6 @@ import Navbar from './components/NavBar'
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  background: #f4f6f9;
 }
 
 .btn.site-btn {
@@ -130,7 +130,7 @@ import Navbar from './components/NavBar'
   display: flex;
   justify-content: center;
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: auto;
 }
 
 .wrapper.collapsed {
@@ -152,6 +152,7 @@ import Navbar from './components/NavBar'
 
       h1 {
         font-size: 42px!important;
+        text-align: left;
       }
 
       .subheader {
@@ -164,10 +165,13 @@ import Navbar from './components/NavBar'
       color: var(--pallete3);
       font-size: 72px;
       font-family: Wheaton;
+      text-align: center;
     }
 
     h3 {
       font-family: OpenSans;
+      text-align: center;
+      color: #9e9e9e;
     }
 
     @font-face {

@@ -2,18 +2,24 @@
   <div class="register">
     <h1>Register</h1>
     <h3 class="subheader">Sign up at Saturn Game Studios</h3>
-    <h3 style="color: green" v-show="success">An email has been sent to you, please verify your account</h3>
-    <br />
-    <h3 style="color: green;" v-show="success">If you did not recieve your mail,
-      <br /> check your spam folder or click
+    <transition name="fadeDown">
+      <h3 style="color: green" v-show="success">An email has been sent to you, please verify your account</h3>
+    </transition>
+      <br />
+    <transition name="fadeDown">
+      <h3 style="color: green;" v-show="success">
+        If you did not recieve your mail,
+        <br /> check your spam folder or click
         <a href="#" @click="resendMail()">here</a>
-      to resend</h3>
+        to resend
+      </h3>
+    </transition>
 
     <br />
     <br />
 
     <div class="myFlex">
-      <p style="text-decoration: underline;">Sign up to enjoy all of our games for free!</p>
+      <p class="register-header">Sign up to enjoy all of our games for free!</p>
       <input-text labelText="Name:" @valChange="form.name = $event"></input-text>
       <input-mail labelText="Mail:" @valChange="form.mail = $event"></input-mail>
       <input-password-verify @valChange="form.password = $event"></input-password-verify>
@@ -77,12 +83,30 @@
             this.success = true
             this.resendLink = res.data.mail
           })
+          .catch(() => {
+            this.serverError("Connectivity Error")
+            this.errorDisplay = true
+            this.success = false
+          })
       },
       resendMail() {
+        this.success = false;
         axios({
           method: "GET",
           url: this.$route.params.proxy + '/server/saturn/resend/' + this.resendLink
         })
+          .then(res => {
+            if (!res.data.success)
+              return this.serverError = res.data.err
+
+            this.serverError = ""
+            this.errorDisplay = false
+            this.success = true
+          })
+          .catch(() => {
+            this.serverError("Connectivity Error")
+            this.errorDisplay = true
+          })
       }
     },
     props: ["pagesList"],
@@ -95,12 +119,18 @@
 </script>
 
 <style scoped>
-  h1 {
-      text-align: center;
-  }
 
-  h3 {
-      text-align: center;
+  .register-header {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 1vh;
+    padding-top: 1vh;
+    background-color: #bbbbbb;
+    border-bottom: 1px solid black;
+    font-family: opensans;
+    color: var(--pallete3);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
   }
 
   .myFlex {
@@ -116,9 +146,6 @@
   }
 
   @media(max-width: 1100px) {
-      h1 {
-          
-      }
       .banner img {
           width: 90vw;
       }

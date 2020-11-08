@@ -194,8 +194,9 @@ export default {
 <style>
 
   .weather {
-      max-height: 90vh;
       overflow-y: auto;
+      padding: 5%;
+      padding-bottom: 10vh;
   }
     #map {
         border-radius: 10%;
@@ -260,10 +261,10 @@ export default {
         transition: 0.5s;
     }
 
-    @media(max-width: 480px) {
+    @media(max-width: 800px) {
         
         #map {
-            left: 0vw;
+            left: 0;
         }
     }
 </style>

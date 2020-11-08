@@ -1,6 +1,6 @@
 <template>
   <div class="loading">
-    <img id="load-img" src="/img/Loading.png" :style="loadingRot" />
+    <img id="load-img" src="/img/Loading.png" :style="loadingRot" alt="Loading icon" />
     <br />
     <br />
   </div>

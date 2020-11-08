@@ -3,7 +3,7 @@
   <aside class="sidebar-wrapper">
 
     <router-link class="router-link" to="/">
-      <img src="/img/logo.jpg" alt="Main Logo" class="brand-image" style="opacity: .8">
+      <img src="/img/logo.jpg" alt="Main brand logo" class="brand-image" style="opacity: .8">
     </router-link>
 
     <div class="sidebar">
@@ -14,10 +14,18 @@
           <br />
           <br />
           <li class="nav-item">
-            <router-link id="homeButton" to="/" class="nav-link">
+            <router-link id="statsButton" to="/" class="nav-link">
+              <i class="nav-icon fas fa-chart-line" />
+              <p>
+                Statistics
+              </p>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link id="aboutButton" to="/about" class="nav-link">
               <i class="nav-icon fas fa-chess-queen" />
               <p>
-                Home Page
+                About Me
               </p>
             </router-link>
           </li>
@@ -67,7 +75,7 @@
 
         </ul>
 
-      </nav>
+</nav>
     </div>
 
     
@@ -77,9 +85,20 @@
 </template>
 
 <script>
-export default {
-    name: 'side-bar'
-}
+  export default {
+    name: 'side-bar',
+    mounted() {
+      const buttons = document.getElementsByClassName('nav-link').forEach(element => {
+        if (element.id != "burger") {
+          element.addEventListener('mouseleave', this.hover)
+          element.addEventListener('mouseenter', this.hover)
+        }
+      })
+    },
+    methods: {
+      hover: (e) => e.path[0].querySelector('i').classList.toggle("fa-spin")
+    }
+  }
 </script>
 
 <style scoped>

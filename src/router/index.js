@@ -7,8 +7,16 @@ let pagesList = []
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: () => import('../views/Home.vue'),
+    name: 'stats',
+    component: () => import('../views/Stats.vue'),
+    props: {
+      pagesList
+    }
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: () => import('../views/About.vue'),
     props: {
       pagesList
     }

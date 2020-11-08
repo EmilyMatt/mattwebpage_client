@@ -8,7 +8,7 @@
 
     <div class="banner">
       <loading-img v-if="!imageReady"></loading-img>
-      <img src="img/MewPew.png" :onload="imageReady = true" />
+      <img src="img/MewPew.jpg" :onload="imageReady = true" alt="MewPew banner" />
     </div>
     
     <select v-if="imageReady" id="selectOS" v-model="os">
@@ -53,7 +53,6 @@
     },
     methods: {
       downloadMewPew(os) {
-        console.log(os)
         let link = this.$route.params.proxy + "/downloadmewpew"
         if (os == "Linux")
           link += "_linux"
@@ -68,13 +67,6 @@
 </script>
 
 <style scoped>
-  h1 {
-      text-align: center;
-  }
-
-  h3 {
-      text-align: center;
-  }
 
   .site-btn {
       position: relative;

@@ -146,6 +146,7 @@
       align-items: center;
       background-color: darkgrey;
       border-radius: 20px;
+      min-width: 50%;
       max-width: 1200px;
   }
 

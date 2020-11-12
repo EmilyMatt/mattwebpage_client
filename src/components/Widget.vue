@@ -8,7 +8,7 @@
                     <span :class="'text-'+textColor">
                         <i :class="'fas fa-arrow-'+arrowDir"/> {{percentage}}%
                     </span>
-                    <span class="text-muted">Last week</span>
+                    <span class="text-muted">Since last week</span>
                 </p>
             </div>
 
@@ -60,42 +60,12 @@ export default {
               this.initChart(res.data)
           })
       },
-      setByDays(data, factor) {
-        let weekDays = [0, 0, 0, 0, 0, 0, 0]
-        data.forEach(element => {
-          const day = ((Date.now() - element) / 1000 / 60 / 60 / 24) - factor
-          if (day <= 1)
-            weekDays[0]++
-          else if (day > 1 && day <= 2)
-            weekDays[1]++
-          else if (day > 2 && day <= 3)
-            weekDays[2]++
-          else if (day > 3 && day <= 4)
-            weekDays[3]++
-          else if (day > 4 && day <= 5)
-            weekDays[4]++
-          else if (day > 5 && day <= 6)
-            weekDays[5]++
-          else if (day > 6 && day <= 7)
-            weekDays[6]++
-        })
-        
-        for (let i = weekDays.length - 1; i > 1; i--) {
-          if (weekDays[i] == 0)
-            weekDays[i] = null
-          else
-            break
-        }
-        return weekDays
-      },
       initChart(data) {
-        const thisWeek = this.setByDays(data.thisWeek, 0)
-        const thisWeekUnique = this.setByDays(data.thisWeekUnique, 0)
-        const lastWeek = this.setByDays(data.lastWeek, 7)
-        const lastWeekUnique = this.setByDays(data.lastWeekUnique, 7)
-        this.percentage = Math.trunc(thisWeek[0] / lastWeek[0] * 100)
+
+        this.percentage = data.percentage
 
         if (this.percentage < 0) {
+          this.percentage = Math.abs(this.percentage)
           this.arrowDir = "down"
           this.textColor = "warning"
         } else if (isNaN(this.percentage)) {
@@ -112,28 +82,28 @@ export default {
                 backgroundColor: 'rgba(255, 168, 0, 0.1)',
                 borderColor: 'rgba(255, 168, 0, 1)',
                 fill: false,
-                data: thisWeek,
+                data: data.thisWeek,
                 lineTension: 0
               },
               {
                 backgroundColor: 'rgba(255, 0, 0, 0.1)',
                 borderColor: 'rgba(255, 0, 0, 1)',
                 fill: false,
-                data: thisWeekUnique,
+                data: data.thisWeekUnique,
                 lineTension: 0
               },
               {
                 backgroundColor: 'rgba(0, 0, 255, 0.1)',
                 borderColor: 'rgba(0, 0, 255, 1)',
                 fill: false,
-                data: lastWeek,
+                data: data.lastWeek,
                 lineTension: 0
               },
               {
                 backgroundColor: 'rgba(0, 168, 0, 0.1)',
                 borderColor: 'rgba(0, 168, 0, 1)',
                 fill: false,
-                data: lastWeekUnique,
+                data: data.lastWeekUnique,
                 lineTension: 0
               },
             ]

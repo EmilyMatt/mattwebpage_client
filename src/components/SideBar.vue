@@ -131,6 +131,10 @@
     font-size: 1.5rem;
   }
 
+  .fa-spin {
+      font-size: 2.2rem;
+  }
+
     .nav-link.active {
       background-color: var(--pallete3);
       color: #111111;
